@@ -2,3 +2,4 @@
 venv/
 .ipynb_checkpoints/
 sources.txt
+sources/fifa-20-complete-player-dataset/fifa_players.csv
