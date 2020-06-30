@@ -1,3 +1,6 @@
+--DROP TABLE [dbo].[FACT_player_skills]
+--DROP TABLE [dbo].[DIM_player]
+
 -- Create DIM_time dimension table
 CREATE TABLE DIM_time(
     time_id INT IDENTITY PRIMARY KEY,
@@ -9,12 +12,8 @@ CREATE TABLE DIM_time(
 -- Create DIM_player dimension table
 CREATE TABLE DIM_player(
     player_id INT IDENTITY PRIMARY KEY,
-    url NVARCHAR(500) NOT NULL,
     short_name NVARCHAR(100) NOT NULL,
     long_name NVARCHAR(100) NOT NULL,
-    age INT NOT NULL,
-    height_cm INT NOT NULL,
-    weight_kg INT NOT NULL,
     prefered_foot NVARCHAR(10) NOT NULL
 )
 
@@ -76,7 +75,8 @@ CREATE TABLE FACT_player_skills(
     team_id INT REFERENCES DIM_team(team_id),
     team_position_id INT REFERENCES DIM_team_position(team_position_id),
     player_positions_id INT REFERENCES DIM_player_positions(player_positions_id),
-    player_tags_id INT REFERENCES DIM_player_tags(player_tags_id)
+    player_tags_id INT REFERENCES DIM_player_tags(player_tags_id),
+    age INT NOT NULL
 )
 
 -- Create FACT_matches fact table
