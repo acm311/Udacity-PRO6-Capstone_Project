@@ -3,7 +3,6 @@
 -- AS
 --     IF OBJECT_ID('FACT_matches') IS NOT NULL DELETE FACT_matches
 --     IF OBJECT_ID('FACT_player_skills') IS NOT NULL DELETE FACT_player_skills
---     IF OBJECT_ID('DIM_player_tags') IS NOT NULL DELETE DIM_player_tags
 --     IF OBJECT_ID('DIM_player_positions') IS NOT NULL DELETE DIM_player_positions
 --     IF OBJECT_ID('DIM_nationality') IS NOT NULL DELETE DIM_nationality
 --     IF OBJECT_ID('DIM_team_position') IS NOT NULL DELETE DIM_team_position
@@ -56,12 +55,6 @@ CREATE TABLE DIM_player_positions(
     positions NVARCHAR(20) NOT NULL
 )
 
--- Create DIM_player_tags dimension table
-CREATE TABLE DIM_player_tags(
-    player_tags_id INT IDENTITY PRIMARY KEY,
-    tags NVARCHAR(150)
-)
-
 -- Create FACT_player_skills fact table
 CREATE TABLE FACT_player_skills(
     player_skills_id INT IDENTITY PRIMARY KEY,
@@ -73,12 +66,12 @@ CREATE TABLE FACT_player_skills(
     skill_moves INT NOT NULL,
     joined INT REFERENCES DIM_time(time_id),
     contract_valid_until_year INT NOT NULL,
-    pace INT NOT NULL,
-    shooting INT NOT NULL,
-    passing INT NOT NULL,
-    dribbling INT NOT NULL,
-    defending INT NOT NULL,
-    physic INT NOT NULL,
+    pace INT,
+    shooting INT,
+    passing INT,
+    dribbling INT,
+    defending INT,
+    physic INT,
     gk_diving INT,
     gk_handling INT,
     gk_kicking INT,
@@ -89,7 +82,6 @@ CREATE TABLE FACT_player_skills(
     team_id INT REFERENCES DIM_team(team_id),
     team_position_id INT REFERENCES DIM_team_position(team_position_id),
     player_positions_id INT REFERENCES DIM_player_positions(player_positions_id),
-    player_tags_id INT REFERENCES DIM_player_tags(player_tags_id),
     age INT NOT NULL
 )
 
