@@ -196,5 +196,6 @@ CREATE TABLE STAGING_EURO_LEAGUE(
     HT_Team_2 VARCHAR(MAX),
     GGD VARCHAR(MAX),
     Team_1_pts VARCHAR(MAX),
-    Team_2_pts VARCHAR(MAX)
+    Team_2_pts VARCHAR(MAX),
+    Clean_date VARCHAR(MAX)
 )
