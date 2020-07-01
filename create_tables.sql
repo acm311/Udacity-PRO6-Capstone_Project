@@ -1,5 +1,16 @@
---DROP TABLE [dbo].[FACT_player_skills]
---DROP TABLE [dbo].[DIM_player]
+-- CLEAN_DW_DATA STORE PROCEDURE
+-- CREATE PROCEDURE CLEAN_DW_DATA
+-- AS
+--     IF OBJECT_ID('FACT_matches') IS NOT NULL DELETE FACT_matches
+--     IF OBJECT_ID('FACT_player_skills') IS NOT NULL DELETE FACT_player_skills
+--     IF OBJECT_ID('DIM_player_tags') IS NOT NULL DELETE DIM_player_tags
+--     IF OBJECT_ID('DIM_player_positions') IS NOT NULL DELETE DIM_player_positions
+--     IF OBJECT_ID('DIM_nationality') IS NOT NULL DELETE DIM_nationality
+--     IF OBJECT_ID('DIM_team_position') IS NOT NULL DELETE DIM_team_position
+--     IF OBJECT_ID('DIM_team') IS NOT NULL DELETE DIM_team
+--     IF OBJECT_ID('DIM_player') IS NOT NULL DELETE DIM_player
+--     IF OBJECT_ID('DIM_time') IS NOT NULL DELETE DIM_time
+-- GO;
 
 -- Create DIM_time dimension table
 CREATE TABLE DIM_time(
