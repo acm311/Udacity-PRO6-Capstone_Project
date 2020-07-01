@@ -58,6 +58,7 @@ CREATE TABLE DIM_player_positions(
 -- Create FACT_player_skills fact table
 CREATE TABLE FACT_player_skills(
     player_skills_id INT IDENTITY PRIMARY KEY,
+    date_of_birth_id INT REFERENCES DIM_time(time_id),
     player_id INT REFERENCES DIM_player(player_id),
     overall INT NOT NULL,
     potential INT NOT NULL,
