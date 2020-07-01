@@ -4,8 +4,11 @@
 -- Create DIM_time dimension table
 CREATE TABLE DIM_time(
     time_id INT IDENTITY PRIMARY KEY,
+    date date,
     day INT NOT NULL,
+    day_name VARCHAR(30),
     month INT NOT NULL,
+    month_name VARCHAR(30),
     year INT NOT NULL
 )
 
@@ -45,7 +48,7 @@ CREATE TABLE DIM_player_positions(
 -- Create DIM_player_tags dimension table
 CREATE TABLE DIM_player_tags(
     player_tags_id INT IDENTITY PRIMARY KEY,
-    tags NVARCHAR(100)
+    tags NVARCHAR(150)
 )
 
 -- Create FACT_player_skills fact table
@@ -93,6 +96,8 @@ CREATE TABLE FACT_matches(
     PTS_team_1 INT NOT NULL,
     PTS_team_2 INT NOT NULL
 )
+
+
 
 -- Create STAGING_FIFA_PLAYERS Staging table
 CREATE TABLE STAGING_FIFA_PLAYERS(
